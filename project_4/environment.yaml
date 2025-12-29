@@ -1,8 +1,10 @@
 name: deep_research
 channels:
+  - conda-forge
   - defaults
 dependencies:
   - python=3.11
+  - pip
   - pip:
       - torch==2.9.0
       - transformers==4.57.1
