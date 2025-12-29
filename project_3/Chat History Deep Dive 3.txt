@@ -1,0 +1,132 @@
+00:08:12	Roy's Notetaker (Otter.ai):	Hi, I'm an AI assistant helping Roy Seto take notes for this meeting. Follow along the transcript here:  https://otter.ai/u/-QfxHGe_fFcxPdPqXKtrw13kj9o?utm_source=va_chat_link_1
+
+You can see screenshots and add highlights and comments. After the meeting, you'll get a summary and action items.
+
+
+If you'd like to stop this recording, you can go to the link above and click the Stop button.
+
+If you'd like to stop the recordings for all Otter Notetakers in this meeting, you can type "otter stop" in Zoom chat.
+00:09:45	Sri Kidambi:	And timestamp perhaps?
+00:10:04	Rahul Khadse:	Reacted to "Hi, I'm an AI assist..." with ❤️
+00:11:46	Roy Seto:	I have Otter.ai live transcription running for today's session. Click the link below to live-tail the transcript now or to view the meeting summary & transcript after the session is over.
+
+https://otter.ai/u/-QfxHGe_fFcxPdPqXKtrw13kj9o?utm_source=copy_url
+00:12:45	Roy Seto:	Replying to "And timestamp perhap..."
+
+@Sri Kidambi Otter usually ensures timestamps are included as part of its post-processing after the meeting ends.
+00:13:31	Prashant N:	Reacted to "Hi, I'm an AI assist..." with ❤️
+00:14:40	Prasad A:	Note: I figured “TOOL_CALL” is not a keyword. It can be something else like EXECUTE
+00:14:57	Keyur Hindocha:	Reacted to "Note: I figured “TOO..." with 👍
+00:15:09	Sri Kidambi:	Reacted to "Note: I figured “TOO..." with 👍
+00:15:09	Subbu Sundaresan:	Can someone tell me how I can access the p3.excalidraw canvas file for week 3 ? Thanks.
+00:16:34	Prashant N:	We tell LLM on tool and what arguments tool expect. It will be covered in the following cells
+00:17:10	Roy Seto:	Reacted to "Note: I figured “TOO..." with 👍
+00:17:46	Sri Kidambi:	Reacted to "We tell LLM on tool ..." with 👍
+00:19:57	Rahul's Notetaker (Otter.ai):	Hi, I'm an AI assistant helping Rahul Khadse take notes for this meeting. Follow along the transcript here:  https://otter.ai/u/yqRSSRdYn-MFU16GIhvyUJ_fqAo?utm_source=va_chat_link_1
+
+You can see screenshots and add highlights and comments. After the meeting, you'll get a summary and action items.
+
+
+If you'd like to stop this recording, you can go to the link above and click the Stop button.
+
+If you'd like to stop the recordings for all Otter Notetakers in this meeting, you can type "otter stop" in Zoom chat.
+00:22:44	Sri Kidambi:	How do we decide which layer of abstraction to use here
+
+Between “import openai” and “from langchain.chains import ConversationalRetrievalChain”
+00:34:09	Avinash Modi:	why is description empty because we have defined the doc string
+00:36:22	Sri Kidambi:	Replying to "How do we decide whi..."
+
+Lowest-level building block: you own prompts, tool calls, memory, vector search, retries, logging, evals, etc. 
+Maximum flexibility and debuggability, minimal magic, and no framework lock‑in, but more engineering work and more code to maintain
+Prefer “import openai when The interaction pattern is simple and we care about Exact prompts, token usage, and latency tuning
+Prefer “ConversationalRetrievalChain” (or similar) when we’re doing standard RAG/chatbot: Question + chat history → rephrased standalone question → retrieve top‑k chunks → answer using context + history
+00:40:40	Prasad A:	When LLM can’t do the job it is asked to, does it return any error or warning?
+00:41:10	Avinash Modi:	the output is sometimes json and sometimes just a string. Can we do somthing for output validation
+00:41:33	Edgard:	Reacted to "the output is someti..." with 👍
+00:46:18	Sri Kidambi:	Do LLMs have to be post trained or fine tuned to work with different types of tools and providing final answer or do general LLMs adapt to this style of prompting at runtime directly?
+00:46:45	Chetan Nadgouda:	may help to raise your hand for questions.
+00:49:04	Anoop Chandramohanan Nair:	isn't it possible to implement a code generation module, to automatically create a function for a specific tool function and add to the repository which gets added automatically as it is requested
+00:50:58	hosseinafshari:	I guess the  definition of the Tool object class in the lang chain doc
+00:53:32	hosseinafshari:	https://reference.langchain.com/python/
+00:55:17	Sri Kidambi:	With the average/mean context length being 128K tokens for modern LLMs (very large models have 1M context window/less performant), how much context/tool-call-definitions can we add in the system prompt for meaningful user experience for a wide range of activities
+01:00:03	JAGANNATH PANIGRAHY:	How to check if LLM supports tool calling?
+01:10:39	Prithvi:	How do we implement multi arg tools?
+01:11:35	timur:	If you use “the Seattle city” explicitly it works
+01:11:38	Raymond Chan:	is it possible to print the failed output to see what went wrong?
+01:12:41	Sri Kidambi:	Let’s say there are 20 types of tools and each tool has 10 different failure modes. This already leads to 200 different types of failures that the lang chain agent needs to handle. Doesn’t this get out of hand very soon?
+
+Also LLMs are stochastic in nature right, so there’s a good chance that we don’t get the tool call right with right params. Then, there are network issues, bot blockers if the tool is scraping and so on. 
+
+How do services like Perplexity work reliably well?
+01:20:52	Dmitry:	Ali, please explain how you would execute multi-argument tools (such as for the weather tool, where we initially wanted to pass both "city" and "unit" params)
+01:21:43	Prasad A:	Replying to "How to check if LLM ..."
+
+https://ollama.com/search?c=tools
+01:40:27	Sri Kidambi:	Replying to "Ali, please explain ..."
+
+The AI agent would probably add in the system prompt, the exact JSON structure of the argument.
+
+Multi-argument tools would probably need to expose a single dict/hash parameter whose structure would be embedded in the system prompt
+01:51:36	Sri Kidambi:	But then we would need domain specific system prompts- one for math, one for biology and there are many different number of domains
+01:53:09	Anoop Chandramohanan Nair:	@Chetan Nadgouda it might sometime just depend on the order in which the tool list is coded, it pick the first one in the list which satisfies it all the time.
+01:54:02	Chetan Nadgouda:	@Anoop Chandramohanan Nair do you mean the order or specification in the system prompt?
+01:54:23	Chetan Nadgouda:	order of specification
+01:55:00	Sri Kidambi:	Maybe the LLM also learns the right tool based on the question being asked- 
+
+If LLM is able to detect the context of mission critical problem domain, it automatically learns to choose high fidelity tool over regular tool?
+01:55:32	Chetan Nadgouda:	Reacted to "Maybe the LLM also l..." with 👍
+01:56:24	Sri Kidambi:	But all of this is possible with a lot of specific fine tuning in post training
+01:56:43	Anoop Chandramohanan Nair:	Replying to "order of specificati..."
+
+yes
+01:56:51	Chetan Nadgouda:	Reacted to "yes" with 👍
+01:57:23	Chetan Nadgouda:	Replying to "order of specificati..."
+
+thank you for answering and clarifying... 🙏
+01:57:48	Sri Kidambi:	I’m not sure how this would scale to hundreds of thousands of tools across verifiable and unverifiable  domains with a lot of overlapping functionality and how we can get a reliable experience
+01:58:44	Anoop Chandramohanan Nair:	Replying to "order of specificati..."
+
+the only thing surpasses that order is the details u give in the prompt. if that is missing, then it will go one by one logically and matches the first one.  also depending on the modal, if it is thinking modal, it may  iterate all the functions and then put a confidence ratio and use the higher one.
+01:59:27	Sri Kidambi:	Reacted to "the only thing surpa..." with 👍
+01:59:50	Chetan Nadgouda:	Reacted to "the only thing surpa..." with 👍
+02:01:20	Chetan Nadgouda:	Replying to "order of specificati..."
+
+My question was specifically about ambiguity. 🙂 If it's deterministic, that would make it easy to identify. If there are multiple tools that could satisfy the question, the model has to make the determination. that' specific situation is what I was referencing to...
+02:03:27	Chetan Nadgouda:	Replying to "order of specificati..."
+
+From software engineering side, I can think of making multiple ways to identify the solution (with learning on the tool efficiency by the model). That doesn't address what really happens behind the scene.
+02:07:10	Sri Kidambi:	Replying to "order of specificati..."
+
+I think modern LLMs may have a lot of specific fine tuning in post training for the right tool calling based on chat history and context. 
+But to get a more deterministic tool selection, we would need fine tuning support at instruct model stage and also potential PEFT improvements to choose right tools.
+I’m not sure how this would scale to thousands of tools across verifiable and unverifiable  domains with a lot of overlapping functionality and how we can get a reliable experience.
+02:14:48	Roy Seto:	@Safikur Khan - A few weeks ago, I attended a full-day conference in SF about using TypeScript in AI agents and applications. It was sponsored by Mastra and I thought it was quite good. Let me look for more info in my notes. I may post it in a thread underneath this message, or perhaps on Circle this coming week.
+02:15:28	Safikur Khan:	Reacted to "@Safikur Khan - A fe..." with 👍
+02:21:32	Gonzalo Tixilima:	Observability tools might help to debug LLMs in production. Arize Phoenix is a great open source option
+02:22:01	Chetan Nadgouda:	Reacted to "Observability tools ..." with 👍
+02:23:56	Roy Seto:	Replying to "@Safikur Khan - A fe..."
+
+Resources on the TypeScript AI conference sponsored by Mastra earlier this month:
+Conference website: https://tsconf.ai/ 
+My original Luma invite: https://luma.com/hyml00gk?tk=lBHuXu 
+Conference sponsor website: https://mastra.ai/ 
+Mastra’s TypeScript AI framework on GitHub: https://github.com/mastra-ai/mastra. “The TypeScript AI agent framework. ⚡Assistants, RAG, observability. Supports any LLM: GPT-4, Claude, Gemini, Llama.”
+
+Conference elevator pitch: 
+
+TypeScript AI: The first conference for TypeScript AI developers
+November 6, 2025 | San Francisco
+→ tsconf.ai
+Python trains. TypeScript ships.
+
+Note: I personally have spent far more of my last ten years working professionally in Python, not TypeScript or JavaScript. I attended this conference to learn a different perspective with the openness to have my mind changed. I think I will continue working in Python for now, and I can see how TypeScript could become a contender for certain prod use cases.
+02:24:08	Dmitry:	Replying to "Ali, please explain ..."
+
+yeah, searching on the web, it seems that it mostly manual parsing of LLM structured response, following with manual calling the tool function with those multi-arguments. And I believe it's a simple limitation of the Langchain Tool API to accept a single argument. MCPs seem to allow multiple arguments https://github.com/langchain-ai/langchain-mcp-adapters
+02:24:21	Sri Kidambi:	LangChain, LlamaIndex, Haystack, txtai
+02:24:24	Roy Seto:	Replying to "@Safikur Khan - A fe..."
+
+@Safikur Khan ^^
+02:24:28	Edgard:	Thank you Ali!!, Happy thanks giving!
+02:24:35	Safikur Khan:	Can you send me in the discord?
+02:24:37	Chetan Nadgouda:	Thanks Ali

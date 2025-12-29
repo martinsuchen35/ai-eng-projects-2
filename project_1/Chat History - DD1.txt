@@ -1,0 +1,144 @@
+00:00:51	Deepanjan Majumdar:	I am from india its 11:30 P IST
+00:01:22	Simon in Brisbane:	Hi from 0400 in Brisbane
+00:04:34	Timur Asanov:	Hi everyone. Is it just me or there are issues with the sound. The voice sounds strangely slowed down
+00:04:59	Lior Elrom:	Sounds good to me
+00:05:00	Paul Llanes:	Im not hearing any sound issues
+00:05:01	venu.samprathi@yahoo.com:	audio is clear for me
+00:05:03	KhadijaS:	Replying to "Hi everyone. Is it j..."
+
+Okay for me
+00:05:05	-Navya Patlu-:	audio is clear
+00:05:07	Seb R:	Good on my end
+00:05:15	Mohammed Almatari:	Audio is good for me
+00:05:15	Timur Asanov:	Reacted to "audio is clear" with 👍
+00:06:12	Timur Asanov:	Yeah, looks good for me now
+00:06:16	Timur Asanov:	thanks
+00:06:28	Timur Asanov:	Reacted to "Audio is good for me" with 👍
+00:06:32	Timur Asanov:	Reacted to "Good on my end" with 👍
+00:06:35	Timur Asanov:	Reacted to "audio is clear for m..." with 👍
+00:06:41	Timur Asanov:	Reacted to "Im not hearing any s..." with 👍
+00:06:44	Timur Asanov:	Reacted to "Sounds good to me" with 👍
+00:06:49	Timur Asanov:	Reacted to "Okay for me" with 👍
+00:08:50	Roy's Notetaker (Otter.ai):	Hi, I'm an AI assistant helping Roy Seto take notes for this meeting. Follow along the transcript here:  https://otter.ai/u/Zd3JJs5pqX6OAhK-JfQTa6vn0YY?utm_source=va_chat_link_1
+
+You can see screenshots and add highlights and comments. After the meeting, you'll get a summary and action items.
+
+
+If you'd like to stop this recording, you can go to the link above and click the Stop button.
+
+If you'd like to stop the recordings for all Otter Notetakers in this meeting, you can type "otter stop" in Zoom chat.
+00:11:39	Roberto Gtz:	Every Token is restricted to only words ? 
+
+Can they be like ‘phrasal verbs’ or small phrases that are always find together ?
+00:18:18	Deepanjan Majumdar:	Dont we need the tokeniser to be the order the corpus words are in @Ali Aminian ?
+00:18:53	Chetan Nadgouda:	raise hand in zoom to ask questions..
+00:18:57	Chang Liu:	Are there any best practices on how we assign IDs to the vocabulary?
+00:27:39	Anoop Chandramohanan Nair:	decode ids not text right?
+00:27:42	Mohamad Elarabi:	decode(ids)
+00:28:11	Soumya:	Handling new words is not scope of this exercise ??
+00:31:10	Chang Liu:	How are LLMs handling typos
+00:32:19	Mohamad Elarabi:	word2id.get(tok, word2id["UNK"])
+00:33:56	Elena:	Instead of introducing “UNK”, can we update the vocab and add the new tokens into it?
+00:35:09	Soumya:	encode_list = [word2id.setdefault(x, len(word2id)) for x in text_list] --> We can always add to our vocab
+00:37:11	Simon in Brisbane:	Word Level Tokenizer Questions
+Can the tokenizer order swapped out? I could see a case where training order is optimized differently from the inferencing. eg. Using some memory data object for training, then a different for speed when inferencing?
+00:37:13	Lam W:	Why lower the str?
+00:38:03	jricardo_rr:	Replying to "Instead of introdu..."
+
+Yeah, I had the same question as well. Why can't it be dynamic and be updated as new words appear?
+00:39:18	Maruthi ChandraSekhar:	Replying to "Instead of introduci..."
+
+Iiuc its because training is done with words already in the known set
+00:39:58	Ganesh Kandisa:	Replying to "Instead of introduci..."
+
+In that case people can fill garbage words(such as ‘hadibahfiu’, ‘assdhfasjfa’) and explode vocabulary 🙂
+00:40:09	Elena:	Reacted to "Iiuc its because tra..." with 👍
+00:40:15	Elena:	Reacted to "In that case people ..." with 👍
+00:40:16	Mohamad Elarabi:	Replying to "Instead of introduci..."
+
+the tokenizer is just a dictionary. Without training new words are useless
+00:40:25	Elena:	Replying to "Instead of introduci..."
+
+Got it, thanks! 🙂
+00:41:57	Rahul Khadse:	Replying to "Are there any best p..."
+
+Hey Chang, Not sure. TBH it depends on vocab and company and also Language.. But there are some reserved tokens if that helps. Like UNK -> PAD, CLS - SEP, MASK, BOS, EOSAlso, GPT2 onward I think in order to incorporate different languages - they started byte level encoding as well. Hope this helps
+00:43:39	Chetan Nadgouda:	What about punctuations? To keep the context of the framing of sentence?
+00:43:58	Chetan Nadgouda:	e.g. ? ! and so on
+00:44:15	Elena:	Reacted to "the tokenizer is jus..." with 👍
+00:44:29	Chetan Nadgouda:	Reacted to "e.g. ? ! and so on" with 👍
+00:46:04	Shuanak Khedkar:	In general are spelling mistakes handled In tokenizer ? Or that is on the prompt cleaning?
+00:46:41	Mohamad Elarabi:	I think that's in prompt cleaning
+00:53:43	Deepanjan Majumdar:	When u say relation what does that mean @Ali Aminian  ?
+00:54:18	Deepanjan Majumdar:	Is it for the attention phase ?
+00:56:43	Maruthi ChandraSekhar:	Reacted to "In that case people ..." with 👍
+00:59:35	Chang Liu:	Does the recent Deepseek OCR paper change how we think about the role of tokenizers in the future?
+01:01:33	Rahul Khadse:	If anyone here has ever taken the GRE… you’ll know the pain. Out of those 50,000 words, we basically had to recite 10,000 of them. 😂 (totally exaggerating… but it felt like it!)
+01:02:08	Sushma Shaikh:	Reacted to "Does the recent Deep..." with 👍
+01:02:21	KhadijaS:	Reacted to "If anyone here has e..." with 😂
+01:02:22	Anoop Chandramohanan Nair:	what does normalized means in the options>
+01:02:26	Rahul Khadse:	Replying to "Instead of introduci..."
+
+You can add reduce the count of UNK nown words ; but you always need / should have UNK in vocab
+01:02:46	Mohan:	How hugging face has access to these LLM Model Tokenizers?
+01:03:00	venu.samprathi@yahoo.com:	Reacted to "Does the recent Deep..." with 👍
+01:03:46	Mohamad Elarabi:	Replying to "How hugging face has..."
+
+they're made public by their authors
+01:04:48	Rahul Khadse:	Replying to "How hugging face has..."
+
+^^^ Many LLM developers (OpenAI, Google, Meta, Anthropic, etc.) publish their tokenizer definitions alongside the model weights, often in open repositories.
+01:04:48	Deepanjan Majumdar:	Emojis are also part of vocab @Ali Aminian  thats amazing
+01:05:06	Rahul Khadse:	Replying to "How hugging face has..."
+
+For ex: Check out this GPT2 encoding.py on github
+01:05:13	Rahul Khadse:	Replying to "How hugging face has..."
+
+https://github.com/openai/gpt-2/blob/master/src/encoder.py
+01:06:26	Rahul Khadse:	https://huggingface.co/openai-community/gpt2/raw/main/vocab.json
+
+Vocab on hugging face
+01:07:16	Rahul Khadse:	Reacted to "Emojis are also part..." with 👏
+01:15:19	Gaurav Sikri:	Binaries?
+01:15:20	Chetan Nadgouda:	Unicode
+01:15:25	Mohan:	Reacted to "https://huggingface...." with ❤️
+01:23:50	Somindra:	torch.randn, right?
+01:24:17	Somindra:	randn to keep the random weights between 0 and 1?
+01:25:34	Chang Liu:	Is nn.Linear initialized with random values?
+01:28:02	Maruthi ChandraSekhar:	What’s the difference between all the packages 
+AutoModelForCausalLM, GPT2LMHeadModel, etc 
+Is there some layout?
+01:28:15	Chetan Nadgouda:	lost you there for 30 seconds
+01:28:18	Colm Nee:	Replying to "randn to keep the ra..."
+
+I think either is fine, rand returns uniformly distributed numbers between 0 and 1, and randn returns normally distributed numbers. In practice, I believe randn is used more for this purpose as it will output fewer numbers closer to 0 and 1, which can slow down convergence.
+01:28:26	Ved Vasavada:	Reacted to "lost you there for 3..." with ➕
+01:28:28	Paul Llanes:	Reacted to "lost you there for 3..." with ➕
+01:28:29	Maruthi ChandraSekhar:	Reacted to "lost you there for 3..." with ➕
+01:28:29	kobybryan:	Reacted to "lost you there for 3..." with ➕
+01:28:34	Sushma Shaikh:	yes
+01:28:35	Paul Llanes:	Youre audible again
+01:28:36	Chetan Nadgouda:	ow you are
+01:28:37	venu.samprathi@yahoo.com:	yes, now you are
+01:28:38	Amar Bat:	Reacted to "lost you there for 3..." with ➕
+01:28:40	Mohamad Elarabi:	there was a blip but now good
+01:28:40	Bashier:	Reacted to "lost you there for..." with ➕
+01:28:42	ernestmak:	Reacted to "there was a blip but..." with 👍
+01:37:58	kezhenyang:	Do we get the solution at the end?
+01:38:50	Zhiying Li:	The rendering of the jupyter notebook output the genatred text twice
+01:39:32	venu.samprathi@yahoo.com:	Is there a good resource that quickly reviews various NN architectures and how different elements are 'piped' for different use-cases?
+01:45:02	Daniel Hennessy:	Thank you
+01:46:40	Elena:	Reacted to "You can add reduce t..." with 👍
+01:49:45	Timur Asanov:	Ali, thanks for the presentation! It was very informative and helpful.
+01:50:02	Chetan Nadgouda:	Reacted to "Ali, thanks for the ..." with ➕
+01:50:05	Rahul Khadse:	Reacted to "Hi everyone, this is..." with ❤️
+01:50:55	Aleksander Kirsten:	Reacted to "Ali, thanks for th..." with ➕
+01:52:42	Víctor (ADP):	Thank you. Have a nice day fwd.
+02:01:12	Gaurav Sikri:	Reacted to "Ali, thanks for the ..." with ➕
+02:01:27	Mohamad Elarabi:	Collab pro
+02:01:35	Safikur Khan:	Reacted to "Collab pro" with 👍
+02:42:57	Rahul Khadse:	अली -- Ali in Marathi/Hindi
+02:52:51	Mohamad Elarabi:	It refers to the function Wx + b
+02:53:09	Mohamad Elarabi:	That function is a linear function
+02:54:27	Rahul Khadse:	Reacted to "That function is a l..." with 👍
+02:54:39	Sushma Shaikh:	thank you

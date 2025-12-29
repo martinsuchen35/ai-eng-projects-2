@@ -1,0 +1,55 @@
+00:00:44	shailendra saini:	Hello All
+00:01:17	Fireflies.ai Notetaker Rahul:	Rahul invited Fireflies.ai here to record & take notes. View Security & Privacy info: https://fireflies.ai/policy
+
+Type:
+'/ff leave' - Remove Fireflies
+
+View Realtime notes here: https://app.fireflies.ai/live/01KCCDZ53P4NWC4JN7D0HKPXGC?ref=live_chat
+00:01:43	shailendra saini:	Hi, I'm transcribing this call with my Tactiq AI Extension: https://tactiq.io/r/transcribing
+00:01:48	Bruce Harmon:	Hi, I'm transcribing this call with my Tactiq AI Extension: https://tactiq.io/r/transcribing
+00:03:34	Roy's Notetaker (Otter.ai):	Hi, I'm an AI assistant helping Roy Seto take notes for this meeting. Follow along the transcript here:  https://otter.ai/u/b6nBESsoVs0GXYHlJCpdkSUmtu8?utm_source=va_chat_link_1
+
+You can see screenshots and add highlights and comments. After the meeting, you'll get a summary and action items.
+
+
+If you'd like to stop this recording, you can go to the link above and click the Stop button.
+
+If you'd like to stop the recordings for all Otter Notetakers in this meeting, you can type "otter stop" in Zoom chat.
+00:24:17	timur:	Reacted to "Hello All" with 👋
+00:26:39	Prasad A:	since all we are doing here is only inferencing, can we use TPUs?
+00:27:32	Chetan Nadgouda:	I was forced to move to this one --> model_id = "runwayml/stable-diffusion-v1-5" # This is the alternative suggested by bing copilot
+00:30:26	timur:	Hi All. One of the problems with the colab servers, they usually provide around 60gb of file storage. So that when we stop loading process in a middle, or trying a huge model, - it runs out of memory
+00:31:45	timur:	I mean it doesn’t clean the files that it already downloaded / cache and then it leaves too little space etc
+00:32:29	James Song:	Hi, I'm transcribing this call with my Tactiq AI Extension: https://tactiq.io/r/transcribing
+00:37:49	Chetan Nadgouda:	Reacted to "Hi All. One of the p..." with 👍
+00:52:18	Chetan Nadgouda:	How do you clear the cache?
+01:01:30	Anoop Chandramohanan Nair:	what would be a meaningful practical usecase of text to image or video other than for entertainment/fun/creativity.
+01:08:56	Sri Kidambi:	Education? Explain concepts in physics like torque or electromagnetism visually to students?
+01:10:43	Gabriel Lievano:	Business = advertisement/marketing
+Design = mockup/concepts/etc
+01:11:00	Sri Kidambi:	Reacted to "Business = advertise..." with 👍
+01:13:20	Chetan Nadgouda:	Indentation of messages
+01:13:34	Chetan Nadgouda:	extra spaces before word messages
+01:17:57	Rahul Khadse:	Reacted to "Business = advertise..." with 👍
+01:20:55	Anoop Chandramohanan Nair:	Reacted to "Business = advertise..." with 👍
+01:21:01	Anoop Chandramohanan Nair:	Reacted to "Education? Explain c..." with 👍
+01:25:09	Safikur Khan:	Is the capstone project demo going to be recorded?
+01:25:33	Chetan Nadgouda:	What is the expectation in presentation? A working prototype?
+01:44:54	Rahul Khadse:	Reza,
+I worked with Adobe folks when I was at Microsoft. 
+Let me know if you want to discuss / deep dive.
+
+Depending on what stack .
+AEM, Adobe Premiure, Photoshop -- there are ways. 
+
+https://www.linkedin.com/in/rkhadse/ 
+01:48:15	Prasad A:	Reacted to "Reza,
+I worked with ..." with 👍
+01:48:46	Prasad A:	Thank you Rahul! I would be interested in learning that as well.
+01:49:24	Reza Miry:	Reacted to "Reza,
+I worked wit..." with 👍
+01:50:00	Rahul Khadse:	Reacted to "Thank you Rahul! I w..." with 👍
+01:50:56	Rahul Khadse:	Replying to "Thank you Rahul! I w..."
+
+Awesome, let's connect !
+02:00:13	Himabala:	Thank you, Ali!!

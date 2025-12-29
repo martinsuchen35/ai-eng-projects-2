@@ -1,0 +1,138 @@
+00:05:33	Ganesh Kandisa:	Is git repo available for these cohort 1 projects for ref pls?
+00:07:56	Aaron LeBlanc:	Question: What happens when the user uses Prompt Engineering + we have Prompt Engineering active in the system prompt. Is this over optimization? Does it hurt or benefit the output?
+00:10:20	Wahid:	Replying to "Is git repo availabl..."
+
+For the solutions for project 1, check the files within the "deep dive project 1" (week 2) in the lessons
+00:12:39	Dereck Duran:	Is this cursor?
+00:12:55	Wahid:	Reacted to "Is this cursor?" with ✅
+00:14:53	Roy's Notetaker (Otter.ai):	Hi, I'm an AI assistant helping Roy Seto take notes for this meeting. Follow along the transcript here:  https://otter.ai/u/8N2JU7YZZIg8fEbCn9Os9xNI-04?utm_source=va_chat_link_1
+
+You can see screenshots and add highlights and comments. After the meeting, you'll get a summary and action items.
+
+
+If you'd like to stop this recording, you can go to the link above and click the Stop button.
+
+If you'd like to stop the recordings for all Otter Notetakers in this meeting, you can type "otter stop" in Zoom chat.
+00:15:35	Roy Seto:	I have Otter.ai live transcription running for today's session, starting 10 minutes in. Click the link below to live-tail the transcript now or to view the meeting summary & transcript after the session is over.
+
+https://otter.ai/u/8N2JU7YZZIg8fEbCn9Os9xNI-04?utm_source=copy_url
+00:15:49	Fireflies.ai Notetaker Rahul:	Rahul invited Fireflies.ai here to record & take notes. View Security & Privacy info: https://fireflies.ai/policy
+
+Type:
+'/ff leave' - Remove Fireflies
+
+View Realtime notes here: https://app.fireflies.ai/live/01KAPCCJ2NEDFH3XXDENF0XSYS?ref=live_chat
+00:16:07	Wahid:	Replying to "Question: What happe..."
+
+Hmm, I'm not sure either, something to experiment for sure; but thinking out loud: it would probably depend on what kind of prompt engineering the user is establishing
+
+For example, if we prompt engineered the llm to be a "customer support chatbot", and the user also prompts with "act like a customer support chatbot" — this may be redundant but I don't think the output would be "worse", something to try though 🤔
+00:18:48	Dereck Duran:	What if I need to add documents or update the documents? Do I need to make new pipeline to watch fro changes?
+00:22:45	Ashwin Sam George:	Replying to "What if I need to ad..."
+
+Yea had the same question what if more context was inserted
+00:27:08	Wahid:	Replying to "What if I need to ad..."
+
+After the source data is updated, I don't think you need to update anything on the actual RAG chain side of things. Because the retrieval happens at query time (as in this example), so as long the db is updated prior to the query, it should just get the updated information to augment the generation
+
+So the data ingestion layer needs to be updated (i.e. update the vector store), but nothing needed for the RAG chain part
+00:28:10	Aaron LeBlanc:	Replying to "Question: What happe..."
+
+Im thinking more about if the user stacked COT or other methods with our pre-developed COT or other methods system prompts
+00:29:13	Achinto Banerjee:	In production systems , do we typically use langchain for loading pdf or we directly use the lib . For ex: the PyMuPDF can be used directly .
+00:31:50	Safikur Khan:	How do we determine the chunk size?
+00:32:29	Sushma Shaikh:	Reacted to "How do we determine ..." with 👍
+00:32:48	Sushma Shaikh:	Reacted to "In production system..." with 👍
+00:34:00	Prasad A:	Reacted to "How do we determine ..." with 👆
+00:35:32	Aaron LeBlanc:	Reacted to "How do we determine ..." with 👆
+00:36:32	Khadija Sitabkhan:	Do we need to chunk only the ‘page_content’ or the entire raw_document?
+00:37:51	Ashwin Sam George:	Is choosing a embedding model crucial 
+if so how do we choose an embedding model
+00:38:53	Amar Bat:	Did we replace the raw_docs with the output from the WebBaseLoader?
+00:39:08	Dereck Duran:	Reacted to "Did we replace the r..." with 👍
+00:42:18	Safikur Khan:	Is the bigger model for sentence transformer means it gives more accurate search result? I meant how can we determine which one to pick for a customer support RAG?
+00:42:52	Ashwin Sam George:	So im guessing based of the embedding model we can handle large chunked data and all based of the what its context window
+00:50:28	Safikur Khan:	I guess this vectordb.saveaslocal() is storing locally. How can we store in the remote server like pgvector etc?
+00:51:17	Prasad A:	Reacted to "I guess this vectord..." with 👆
+00:51:42	Prasad A:	How do we decide which model is good for a given job?
+00:51:58	sachinjo:	Can chunks be extracted  based on context and avoid fixed length chunks before embedding.  is there any benefits in changing chunking Size/ logic or it does not matter due to embedding
+01:08:04	Sushma Shaikh:	Reacted to "How do we decide whi..." with 👍
+01:12:57	Khadija Sitabkhan:	Are the Chunks updated from the Web URLS?
+01:13:22	Manoj Pendyala:	Yeah, I think the same problem
+01:13:28	Maruthi ChandraSekhar:	Where’s the context supplied to the chain?
+01:18:25	Rajesh:	Is the user query made as part of the search gets converted to embedding as well before passing to the retriever?
+01:20:19	Rajesh:	how can we optimize the search considering the embedding creation at runtime for userquery before injecting the output as part of the context to the LLM?
+01:21:05	Khadija Sitabkhan:	Reacted to "Yeah, I think the sa..." with 👍
+01:21:16	Dereck Duran:	When we pull docs from a webpage, how do we clean the text or make it suitable for the LLM to answer questions?
+
+I used two websites for my raw docs but the \n tags is making the retrieval trash
+01:23:38	sachinjo:	How do you evaluate efficacy of   chunking, embedding , retrieval  and summarization across variation ?  How do you automate efficacy evaluation the answers matches ground truth  ?
+01:25:44	Dereck Duran:	Where are the solutions?
+01:25:47	Rajesh:	What are the best practices to implement RAG at scale in production, specifically reducing the inference time latency ?
+01:27:08	Rajesh:	Does changing the embedding model need rerun for the embedding creation or the generated vectors can work with any other model in future if we want to switch?
+01:28:11	James Song:	Reacted to "How do you evaluate ..." with ➕
+01:28:28	James Song:	Reacted to "What are the best pr..." with ➕
+01:30:49	Roy's Notetaker (Otter.ai):	Roy Seto: "list today's lecture topics so far in 150 words or fewer. headings and bullet points" 
+
+✨ Today's Lecture Topics
+
+**Project Overview**
+- Objective: Build a customer support chatbot using a general-purpose LLM and company knowledge base (PDFs).
+
+**Data Preparation**
+- Parsing PDFs, extracting text, and creating structured, metadata-rich documents.
+- Chunking documents for efficient information retrieval.
+
+**Environment Setup**
+- Setting up dependencies using Conda and an environment.yml file.
+
+**Document Loading**
+- Loading PDFs via PyPDFLoader; handling web data via WebBaseLoader.
+
+**Embedding and Indexing**
+- Creating text embeddings using pre-trained sentence transformers.
+- Building a vector database (FAISS) for document retrieval.
+
+**LLM Integration & RAG Pipeline**
+- Running local LLMs (Ollama), integrating them with retrieval vi...
+
+See full answer - https://otter.ai/u/8N2JU7YZZIg8fEbCn9Os9xNI-04?utm_source=va_chat&utm_content=qanda&tab=chat&message=17c32d7f-1f1d-4d3c-b7ac-de81df06f903
+01:31:30	Deepanjan Majumdar:	Yes the context and other one are already standard for the lib
+01:31:38	Deepanjan Majumdar:	It should be passed as is
+01:36:06	Shuanak Khedkar:	Where is the solution generally released to? I didnt find the solution for first project as well
+01:38:36	Roy Seto:	Here’s some info about the GEPA Reflective Prompt Evolution paper that Ali recommended about 5 minutes ago:
+Summary from Perplexity Pro: https://www.perplexity.ai/search/gepa-reflective-prompt-evoluti-JQJTTn9iTVWDEX8C1oustw#0 
+Paper abstract: https://arxiv.org/abs/2507.19457 
+Paper PDF direct link: https://arxiv.org/pdf/2507.19457
+01:39:19	kevin senet:	Reacted to "Here’s some info abo..." with 👏
+01:39:35	Maruthi ChandraSekhar:	Reacted to "Here’s some info abo..." with 👍
+01:40:13	Dominique Morris:	Reacted to "Here’s some info abo..." with 👍
+01:41:06	Ashwin Sam George:	Reacted to "Here’s some info abo..." with 👏
+01:43:25	Chetan Nadgouda:	Reacted to "Here’s some info abo..." with 👍
+01:43:59	Prasad A:	Reacted to "Here’s some info abo..." with 👍
+01:47:02	Chetan Nadgouda:	Ali, there are ways to do log management. May be these can be used as source for the feed?
+01:55:45	Shuanak Khedkar:	Reacted to "Where are the soluti..." with ➕
+02:37:48	Roy Seto:	Did anyone catch the two papers about image processing that Ali briefly showed about a minute ago?
+02:38:50	venu.samprathi@yahoo.com:	Replying to "Did anyone catch the..."
+
+are you referring to this one: https://openai.com/index/clip/
+02:39:41	Veeral Patel:	Replying to "Did anyone catch the..."
+
+https://arxiv.org/abs/1711.00937
+02:40:15	Roy Seto:	Replying to "Did anyone catch the..."
+
+@venu.samprathi@yahoo.com @Veeral Patel - thank you both!
+02:41:02	venu.samprathi@yahoo.com:	Replying to "Did anyone catch the..."
+
+🙌
+02:41:52	Veeral Patel:	Reacted to "@venu.samprathi@yaho..." with 👍
+02:52:19	Chetan Nadgouda:	@Ali Aminian This is exactly what I plan to address in my project. Happy to talk about it.
+03:05:38	Deepanjan Majumdar:	Yes u can
+03:05:49	Deepanjan Majumdar:	For llama you can in containers too
+03:06:12	Deepanjan Majumdar:	Even for large models you can run on containers too
+03:08:21	Kaylee Ye:	Yes offline
+03:08:28	Chetan Nadgouda:	Reacted to "Yes offline" with 👍
+03:10:25	Romit Dasgupta:	I think the interesting point is how do you fit a 1T+ parameter model in GPUs that no single GPU can hold with current technology (even with quantization). It probably demands splitting the layers across multiple GPUs
+03:11:28	Chetan Nadgouda:	Reacted to "I think the interest..." with 👍
+03:13:08	Chetan Nadgouda:	muted
+03:16:59	sarmishta:	Thank you!
